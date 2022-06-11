@@ -23,7 +23,7 @@ function goto(){
          try{
              if (httpRequest.readyState===XMLHttpRequest.DONE ) {
                  if(httpRequest.status===200){
-                    console.log(httpRequest.responseText);
+                    // console.log(httpRequest.responseText);
                     display(httpRequest.responseText);
              }
              else{
@@ -51,7 +51,7 @@ function logout() {
  function display(data) {
      var list=JSON.parse(data);
      let table=document.getElementById("result");
-      for(var i=0;i<list.lenght;i++) {
+      for(var i=0;i<list.length;i++) {
           let rowcount=table.rows.length;
           var row=table.insertRow(rowcount);
           var cell1=row.insertCell(0);
@@ -65,7 +65,7 @@ function logout() {
           element.type="checkbox";
 
 
-          if (list[i].compleated==true) {
+          if (list[i].completed==true) {
               element.setAttribute("checked","true");
               element.setAttribute("disabled","true");
             }
@@ -86,7 +86,7 @@ function logout() {
 
 var count=0;
 function checkCounter(){
-    let promise=new promise(function(resolve,reject){
+    let promise=new Promise(function(resolve,reject){
         if (count==5) {
             resolve("Congrats. 5 Tasks have been Successfully Completed");
         }
